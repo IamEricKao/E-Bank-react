@@ -4,14 +4,14 @@ const API_BASE_URL = "http://localhost:8090/api";
 
 const api = axios.create({
     baseURL: API_BASE_URL,
-    headers:{ 'Content-Type' : 'application/json' }
+    headers: { 'Content-Type': 'application/json' }
 });
 
 //如果存在令牌token,新增到請求中
 api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token');
-        if(token){
+        if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
@@ -54,7 +54,7 @@ export const apiService = {
     isAuditor() {
         return this.hasRole('AUDITOR');
     },
-    
+
 
     login: (body) => {
         return api.post('/auth/login', body);
@@ -88,8 +88,8 @@ export const apiService = {
         const formData = new FormData();
         formData.append('file', file);
 
-        return api.put('/users/profile-picture', formData , {
-            headers: { 'Content-Type' : 'multipart/form-data'}
+        return api.put('/users/profile-picture', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
         });
     },
 
@@ -116,7 +116,7 @@ export const apiService = {
 
 
     // region AUDITOR
-    
+
     getSystemTotals: () => {
         return api.get('/audit/totals');
     },

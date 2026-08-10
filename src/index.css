@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -262,7 +261,7 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
   padding-top: 20px;
   text-align: center;
   font-size: 0.9rem;
@@ -285,7 +284,7 @@ body {
 }
 
 .hero {
-  background: linear-gradient(135deg, #0a36ba 0%, #283593 100%);
+  background: linear-gradient(135deg, #0ABAB5 0%, #c3ffff 100%);
   color: white;
   padding: 100px 0;
   text-align: center;
@@ -327,15 +326,15 @@ body {
   border: 2px solid #64ffda;
 }
 
-.btn-secondary {
+.home-btn-secondary {
   background-color: transparent;
-  color: #64ffda;
-  border: 2px solid #64ffda;
+  color: #86ffff;
+  border: 2px solid #c3ffff;
 }
 
-.btn-secondary:hover {
-  background-color: #64ffda;
-  color: #688FE5;
+.home-btn-secondary:hover {
+  background-color: #0a36ba;
+  color: white;
 }
 
 .features {
@@ -353,7 +352,7 @@ body {
   text-align: center;
   margin-bottom: 50px;
   font-size: 2.5rem;
-  color: #688FE5;
+  color: #0a36ba;
 }
 
 .features-grid {
@@ -382,7 +381,7 @@ body {
 
 .feature h3 {
   margin-bottom: 15px;
-  color: #688FE5;
+  color: #0a36ba;
 }
 
 .feature p {
@@ -1722,19 +1721,6 @@ body {
     min-width: auto;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*DEPOSIT PAGE*/
