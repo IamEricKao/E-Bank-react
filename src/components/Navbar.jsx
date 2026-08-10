@@ -40,7 +40,7 @@ const Navbar = () => {
                                 <Link to="/profile" className="navbar-link">個人資料</Link>
                             </li>
                             <li className="navbar-item">
-                                <Link to="/transfer" className="navbar-link">轉帳</Link>
+                                <Link to="/transfer" className="navbar-link">轉帳紀錄</Link>
                             </li>
                             <li className="navbar-item">
                                 <Link to="/transactions" className="navbar-link">交易明細</Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
                             <li className="navbar-item">
                                 <button
                                     className="navbar-link logout-btn"
-                                    onclick={handleLogout}>
+                                    onClick={handleLogout}>
                                     登出
                                 </button>
                             </li>
@@ -73,7 +73,7 @@ const Navbar = () => {
             </div>
 
             {showModal && (
-                <div className="modal=backdrop">
+                <div className="modal-backdrop">
                     <div className="modal">
                         <p>確定要登出嗎?</p>
                         <div className="modal-actions">
@@ -84,7 +84,7 @@ const Navbar = () => {
                 </div>
             )}
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;
