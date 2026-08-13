@@ -37,7 +37,7 @@ const Navbar = () => {
                     {isAuthenticated ? (
                         <>
                             <li className="navbar-item">
-                                <Link to="/profile" className="navbar-link">個人資料</Link>
+                                <Link to="/profile" className="navbar-link">會員中心</Link>
                             </li>
                             <li className="navbar-item">
                                 <Link to="/transfer" className="navbar-link">轉帳紀錄</Link>

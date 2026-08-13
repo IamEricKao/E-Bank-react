@@ -108,7 +108,7 @@ const Profile = () => {
     if (!userData) {
         return (
             <div className="profile-container">
-                <div className="error-message">無個人資料</div>
+                <div className="error-message">無個人資訊</div>
             </div>
         );
     }
@@ -116,7 +116,7 @@ const Profile = () => {
       return (
         <div className="profile-container">
             <div className="profile-header">
-                <h1>個人資料</h1>
+                <h1>會員中心</h1>
                 <a href="/update-profile" className="btn btn-primary">更換密碼</a>
             </div>
 
@@ -188,7 +188,7 @@ const Profile = () => {
                 </div>
 
                 <div className="accounts-section">
-                    <h2>帳號</h2>
+                    <h2>帳戶資訊</h2>
                     {userData.accounts && userData.accounts.length > 0 ? (
                         userData.accounts.map(account => (
                             <div key={account.id} className="account-card">
@@ -229,7 +229,7 @@ const Profile = () => {
                                                         <p className="transaction-description">{transaction.description}</p>
                                                         <p className={`transaction-amount ${getLowerCaseClassName(transaction.transactionType)}`}>
                                                             {transaction.transactionType === 'WITHDRAWAL' ||
-                                                                transaction.transactionType === 'TRANSFER' ? '-' : '+'}
+                                                                (transaction.transactionType === 'TRANSFER' && transaction.entryDirection === "DEBIT") ? '-' : '+'}
                                                             {account.currency || ''} {formatAmount(transaction.amount)}
                                                         </p>
                                                     </div>
@@ -250,7 +250,7 @@ const Profile = () => {
                             </div>
                         ))
                     ) : (
-                        <p>無帳號資料</p>
+                        <p>無帳號資訊</p>
                     )}
                 </div>
             </div>
