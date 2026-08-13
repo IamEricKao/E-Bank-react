@@ -117,7 +117,7 @@ const Profile = () => {
         <div className="profile-container">
             <div className="profile-header">
                 <h1>會員中心</h1>
-                <a href="/update-profile" className="btn btn-primary">更換密碼</a>
+                <a href="/change-password" className="btn btn-primary">更換密碼</a>
             </div>
 
             {error && <div className="error-message">{error}</div>}
@@ -164,19 +164,19 @@ const Profile = () => {
                     <div className="info-grid">
                         <div className="info-item">
                             <label>姓氏</label>
-                            <p>{userData.lastName || 'Not available'}</p>
+                            <p>{userData.lastName || '找不到內容'}</p>
                         </div>                        
                         <div className="info-item">
                             <label>名子</label>
-                            <p>{userData.firstName || 'Not available'}</p>
+                            <p>{userData.firstName || '找不到內容'}</p>
                         </div>
                         <div className="info-item">
                             <label>Email</label>
-                            <p>{userData.email || 'Not available'}</p>
+                            <p>{userData.email || '找不到內容'}</p>
                         </div>
                         <div className="info-item">
                             <label>電話號碼</label>
-                            <p>{userData.phoneNumber || 'Not available'}</p>
+                            <p>{userData.phoneNumber || '找不到內容'}</p>
                         </div>
                         <div className="info-item">
                             <label>狀態</label>
@@ -208,7 +208,7 @@ const Profile = () => {
                                         <p>{account.currency || ''} {formatAmount(account.balance)}</p>
                                     </div>
                                     <div className="account-created">
-                                        <label>創建日期</label>
+                                        <label>建立日期</label>
                                         <p>{new Date(account.createdAt).toLocaleDateString()}</p>
                                     </div>
                                 </div>
@@ -227,7 +227,7 @@ const Profile = () => {
                                                     </div>
                                                     <div className="transaction-details">
                                                         <p className="transaction-description">{transaction.description}</p>
-                                                        <p className={`transaction-amount ${getLowerCaseClassName(transaction.transactionType)}`}>
+                                                        <p className={`transaction-amount ${getLowerCaseClassName(transaction.transactionType + transaction.entryDirection)}`}>
                                                             {transaction.transactionType === 'WITHDRAWAL' ||
                                                                 (transaction.transactionType === 'TRANSFER' && transaction.entryDirection === "DEBIT") ? '-' : '+'}
                                                             {account.currency || ''} {formatAmount(transaction.amount)}

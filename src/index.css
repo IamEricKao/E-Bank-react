@@ -872,12 +872,13 @@ body {
   font-weight: 600;
 }
 
-.profile-container .transaction-amount.deposit {
+.profile-container .transaction-amount.deposit.credit
+.profile-container .transaction-amount.transfer.credit {
   color: #2e7d32;
 }
 
-.profile-container .transaction-amount.withdrawal,
-.profile-container .transaction-amount.transfer {
+.profile-container .transaction-amount.withdrawal.debit,
+.profile-container .transaction-amount.transfer.debit {
   color: #c62828;
 }
 
