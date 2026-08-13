@@ -21,12 +21,29 @@ api.interceptors.request.use(
     }
 );
 
+const normalizeRoles = (roles) => {
+    if (!roles) {
+        return [];
+    }
+
+    if (Array.isArray(roles)) {
+        return roles;
+    }
+
+    try {
+        const parsedRoles = JSON.parse(roles);
+        return Array.isArray(parsedRoles) ? parsedRoles : [parsedRoles];
+    } catch (error) {
+        return [roles];
+    }
+};
+
 // region api methods
 export const apiService = {
 
     saveAuthData: (token, roles) => {
         localStorage.setItem('token', token);
-        localStorage.setItem('roles', JSON.stringify(roles));
+        localStorage.setItem('roles', JSON.stringify(normalizeRoles(roles)));
     },
 
     logout: () => {
@@ -36,7 +53,7 @@ export const apiService = {
 
     hasRole(role) {
         const roles = localStorage.getItem('roles');
-        return roles ? JSON.parse(roles).includes(role) : false;
+        return normalizeRoles(roles).includes(role);
     },
 
     isAuthenticated: () => {

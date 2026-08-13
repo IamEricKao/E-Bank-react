@@ -10,6 +10,15 @@ const Profile = () => {
     const [success, setSuccess] = useState('');
     const fileInputRef = useRef(null);
 
+    const getLowerCaseClassName = (value) => {
+        return typeof value === 'string' ? value.toLowerCase() : 'unknown';
+    };
+
+    const formatAmount = (amount) => {
+        const numericAmount = Number(amount);
+        return Number.isFinite(numericAmount) ? Math.abs(numericAmount).toFixed(2) : '0.00';
+    };
+
     useEffect(() => {
         fetchUserProfile();
     },[]);
@@ -172,7 +181,7 @@ const Profile = () => {
                         <div className="info-item">
                             <label>狀態</label>
                             <p className={userData.active ? 'status active' : 'status inactive'}>
-                                {userData.active ? 'ACTIVE' : 'INACTIVE'}
+                                {userData.active ? '已驗證' : '未驗證'}
                             </p>
                         </div>
                     </div>
@@ -184,9 +193,9 @@ const Profile = () => {
                         userData.accounts.map(account => (
                             <div key={account.id} className="account-card">
                                 <div className="account-header">
-                                    <h3>{account.accountType} 帳號</h3>
-                                    <span className={`status ${account.status.toLowerCase()}`}>
-                                        {account.status}
+                                    <h3>{account.accountTypeName || '未知'} </h3>
+                                    <span className={`status ${getLowerCaseClassName(account.status)}`}>
+                                        {account.accountStatusName || 'UNKNOWN'}
                                     </span>
                                 </div>
                                 <div className="account-details">
@@ -196,7 +205,7 @@ const Profile = () => {
                                     </div>
                                     <div className="account-balance">
                                         <label>餘額</label>
-                                        <p>{account.currency} {account.balance.toFixed(2)}</p>
+                                        <p>{account.currency || ''} {formatAmount(account.balance)}</p>
                                     </div>
                                     <div className="account-created">
                                         <label>創建日期</label>
@@ -211,17 +220,17 @@ const Profile = () => {
                                             {account.transactions.slice(0, 5).map(transaction => (
                                                 <div key={transaction.id} className="transaction-item">
                                                     <div className="transaction-info">
-                                                        <span className="transaction-type">{transaction.transactionType}</span>
+                                                        <span className="transaction-type">{transaction.transactionTypeName}</span>
                                                         <span className="transaction-date">
                                                             {new Date(transaction.transactionDate).toLocaleDateString()}
                                                         </span>
                                                     </div>
                                                     <div className="transaction-details">
                                                         <p className="transaction-description">{transaction.description}</p>
-                                                        <p className={`transaction-amount ${transaction.transactionType.toLowerCase()}`}>
+                                                        <p className={`transaction-amount ${getLowerCaseClassName(transaction.transactionType)}`}>
                                                             {transaction.transactionType === 'WITHDRAWAL' ||
                                                                 transaction.transactionType === 'TRANSFER' ? '-' : '+'}
-                                                            {account.currency} {Math.abs(transaction.amount).toFixed(2)}
+                                                            {account.currency || ''} {formatAmount(transaction.amount)}
                                                         </p>
                                                     </div>
                                                     {transaction.sourceAccount && transaction.destinationAccount && (
