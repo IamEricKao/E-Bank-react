@@ -88,7 +88,7 @@ const Login = () => {
                 </div>
 
                 <div className="auth-link">
-                    忘記密碼? <Link to="/forgot-password">忘記密碼</Link>
+                    密碼忘記了嗎? <Link to="/forgot-password">忘記密碼</Link>
                 </div>
             </div>
         </div>
