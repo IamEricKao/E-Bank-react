@@ -117,7 +117,7 @@ const Profile = () => {
         <div className="profile-container">
             <div className="profile-header">
                 <h1>會員中心</h1>
-                <a href="/change-password" className="btn btn-primary">更換密碼</a>
+                <a href="/update-profile" className="btn btn-primary">修改密碼</a>
             </div>
 
             {error && <div className="error-message">{error}</div>}
@@ -194,7 +194,7 @@ const Profile = () => {
                             <div key={account.id} className="account-card">
                                 <div className="account-header">
                                     <h3>{account.accountTypeName || '未知'} </h3>
-                                    <span className={`status ${getLowerCaseClassName(account.status)}`}>
+                                    <span className={`status ${getLowerCaseClassName(account.accountStatus)}`}>
                                         {account.accountStatusName || 'UNKNOWN'}
                                     </span>
                                 </div>

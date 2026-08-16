@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
+import UpdateProfile from "./pages/UpdateProfile";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
+
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/update-profile" element={<UpdateProfile />}></Route>
 
         {/* WILDCARD ROUTE */}
         <Route path="*" element={<NotFound />}></Route>

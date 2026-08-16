@@ -588,21 +588,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*FORGOT PASSWORD*/
 /* Add to your existing auth styles */
 .auth-subtitle {
@@ -636,18 +621,6 @@ body {
     font-size: 0.9rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* PROFILE CSS */
@@ -920,11 +893,54 @@ body {
   font-size: 1.2rem;
 }
 
-.error-message {
+.password-form .form-group {
+  display: grid;
+  grid-template-columns: 7% 80% minmax(13%, 1fr);
+  column-gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.password-form .form-group label {
+  grid-column: 1;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.password-form .form-group input {
+  grid-column: 2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-container .password-form .field-error {
+  grid-column: 3;
+  margin: 0;
+  color: #c62828;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.password-form .error{
+  color: #c62828;
+}
+
+.profile-container .error-message {
   background-color: #ffebee;
   color: #c62828;
   padding: 15px;
   border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.profile-container .success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -1063,25 +1079,6 @@ body {
     width: 200px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* TRANSFER CSS */
@@ -1412,27 +1409,6 @@ body {
     align-items: flex-start;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*AUDIT SECTION*/
