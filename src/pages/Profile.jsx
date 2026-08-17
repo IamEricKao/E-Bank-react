@@ -58,6 +58,8 @@ const Profile = () => {
                 setTimeout(() => {
                     setSuccess('');
                 }, 4000);
+            }else{
+                setError(response.data.message);
             }
 
         } catch (error) {
