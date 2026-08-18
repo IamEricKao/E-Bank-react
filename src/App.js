@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import UpdateProfile from "./pages/UpdateProfile";
 import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/update-profile" element={<UpdateProfile />}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+        <Route path="/reset-password" element={<ResetPassword />}></Route>
 
         {/* WILDCARD ROUTE */}
         <Route path="*" element={<NotFound />}></Route>
